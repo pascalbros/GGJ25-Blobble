@@ -1,18 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://xxipcg2ffyus"]
+[gd_scene load_steps=9 format=3 uid="uid://b3pq4ilwh60yh"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_3tpn2"]
-[ext_resource type="PackedScene" uid="uid://dvbt71xwbc73x" path="res://prefabs/bubble.tscn" id="2_2qgxo"]
-[ext_resource type="Texture2D" uid="uid://3iy6qm18aw8x" path="res://assets/sprites/monochrome_tilemap_transparent_packed.png" id="3_4h2ir"]
-[ext_resource type="PackedScene" uid="uid://cnxnfw3k31qpa" path="res://prefabs/player.tscn" id="4_oceo3"]
-[ext_resource type="PackedScene" uid="uid://wb3vp7rjalk8" path="res://prefabs/portal.tscn" id="5_eii4i"]
-[ext_resource type="PackedScene" uid="uid://ds5kjrleqmm5s" path="res://prefabs/push_button.tscn" id="6_7lsjj"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_3ecke"]
+[ext_resource type="PackedScene" uid="uid://dvbt71xwbc73x" path="res://prefabs/bubble.tscn" id="2_37qa6"]
+[ext_resource type="Texture2D" uid="uid://3iy6qm18aw8x" path="res://assets/sprites/monochrome_tilemap_transparent_packed.png" id="3_7up4j"]
+[ext_resource type="PackedScene" uid="uid://cnxnfw3k31qpa" path="res://prefabs/player.tscn" id="4_etjvl"]
+[ext_resource type="PackedScene" uid="uid://wb3vp7rjalk8" path="res://prefabs/portal.tscn" id="5_dsjok"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_44qit"]
 resource_name = "Elements"
-scenes/1/scene = ExtResource("2_2qgxo")
+scenes/1/scene = ExtResource("2_37qa6")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lj57"]
-texture = ExtResource("3_4h2ir")
+texture = ExtResource("3_7up4j")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -491,7 +490,7 @@ sources/2 = SubResource("TileSetAtlasSource_7lj57")
 sources/0 = SubResource("TileSetScenesCollectionSource_44qit")
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_3tpn2")
+script = ExtResource("1_3ecke")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -363.0
@@ -511,46 +510,71 @@ position_smoothing_enabled = true
 
 [node name="Main" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("4_oceo3")]
+[node name="Player" parent="." instance=ExtResource("4_etjvl")]
 position = Vector2(-200, -72)
 
-[node name="Bubble" parent="." instance=ExtResource("2_2qgxo")]
-position = Vector2(200, 56)
-
-[node name="Bubble4" parent="." instance=ExtResource("2_2qgxo")]
-position = Vector2(40, 56)
+[node name="Bubble" parent="." instance=ExtResource("2_37qa6")]
+position = Vector2(56, 8)
 life = 2
 
-[node name="Bubble5" parent="." instance=ExtResource("2_2qgxo")]
-position = Vector2(200, -72)
+[node name="Portal" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_dsjok")]
+position = Vector2(-104, 56)
+linked_portal = NodePath("Portal2")
 
-[node name="Bubble2" parent="." instance=ExtResource("2_2qgxo")]
-position = Vector2(40, -24)
+[node name="Portal2" parent="Portal" node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_dsjok")]
+position = Vector2(128, 32)
+linked_portal = NodePath("..")
 
-[node name="Portal" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_eii4i")]
-position = Vector2(-40, -72)
-monitoring = false
-is_disabled = true
-linked_portal = NodePath("../Portal2")
-
-[node name="Portal2" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_eii4i")]
-position = Vector2(120, -72)
-monitoring = false
-is_disabled = true
-linked_portal = NodePath("../Portal")
-
-[node name="Portal3" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_eii4i")]
-position = Vector2(120, 24)
+[node name="Portal2" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_dsjok")]
+position = Vector2(-24, -8)
 color = 1
-linked_portal = NodePath("../Portal4")
+linked_portal = NodePath("Portal2")
 
-[node name="Portal4" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_eii4i")]
-position = Vector2(-40, 24)
+[node name="Portal2" parent="Portal2" node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_dsjok")]
+position = Vector2(96, -48)
 color = 1
-linked_portal = NodePath("../Portal3")
+linked_portal = NodePath("..")
 
-[node name="PushButton" parent="." instance=ExtResource("6_7lsjj")]
-position = Vector2(-120, -8)
+[node name="Portal3" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_dsjok")]
+position = Vector2(-200, 24)
+color = 2
+linked_portal = NodePath("Portal2")
 
-[connection signal="pressed" from="PushButton" to="Portal" method="switch"]
-[connection signal="pressed" from="PushButton" to="Portal3" method="switch"]
+[node name="Portal2" parent="Portal3" node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_dsjok")]
+position = Vector2(352, -48)
+color = 2
+linked_portal = NodePath("..")
+
+[node name="Portal4" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_dsjok")]
+position = Vector2(-88, -72)
+color = 3
+linked_portal = NodePath("Portal2")
+
+[node name="Portal2" parent="Portal4" node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_dsjok")]
+position = Vector2(208, 128)
+color = 3
+linked_portal = NodePath("..")
+
+[node name="Bubble2" parent="." instance=ExtResource("2_37qa6")]
+position = Vector2(-136, -24)
+life = 2
+
+[node name="Bubble3" parent="." instance=ExtResource("2_37qa6")]
+position = Vector2(-8, -72)
+life = 2
+
+[node name="Bubble4" parent="." instance=ExtResource("2_37qa6")]
+position = Vector2(136, -88)
+life = 2
+
+[node name="Bubble5" parent="." instance=ExtResource("2_37qa6")]
+position = Vector2(-184, 88)
+life = 2
+
+[node name="Bubble6" parent="." instance=ExtResource("2_37qa6")]
+position = Vector2(-40, 88)
+life = 2
+
+[node name="Bubble7" parent="." instance=ExtResource("2_37qa6")]
+position = Vector2(184, 88)
+life = 2

@@ -533,22 +533,18 @@ position = Vector2(168, 8)
 
 [node name="Portal" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_ofwte")]
 position = Vector2(40, 88)
-is_disabled = false
 linked_portal = NodePath("../Portal2")
 
 [node name="Portal2" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_ofwte")]
 position = Vector2(-56, 8)
-is_disabled = false
 linked_portal = NodePath("../Portal")
 
 [node name="Portal3" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_ofwte")]
 position = Vector2(-56, 88)
-is_disabled = false
 color = 1
 linked_portal = NodePath("../Portal4")
 
 [node name="Portal4" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_ofwte")]
 position = Vector2(40, 8)
-is_disabled = false
 color = 1
 linked_portal = NodePath("../Portal3")

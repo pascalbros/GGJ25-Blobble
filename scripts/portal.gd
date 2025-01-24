@@ -10,7 +10,8 @@ enum PortalColor {
 		if value == is_disabled: return
 		is_disabled = value
 		monitoring = not is_disabled
-		create_tween().tween_property(self, "modulate:a", 0.1 if is_disabled else 1.0, 0.2)
+		if sprite != null:
+			create_tween().tween_property(sprite, "modulate:a", 0.1 if is_disabled else 1.0, 0.2)
 		if linked_portal != null:
 			linked_portal.is_disabled = is_disabled
 
@@ -31,6 +32,7 @@ var _was_disabled = false
 func _ready() -> void:
 	_was_disabled = is_disabled
 	if not Engine.is_editor_hint():
+		sprite.modulate.a = 0.1 if is_disabled else 1.0
 		GameManager.resettable_objects.append(self)
 
 func _process(_delta: float) -> void:
