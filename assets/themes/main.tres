@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cicfhp1sq01kw"]
+
+[ext_resource type="FontFile" uid="uid://cok2wp6h7bmtu" path="res://assets/fonts/yoster.ttf" id="1_5leia"]
+
+[resource]
+default_font = ExtResource("1_5leia")
+default_font_size = 40

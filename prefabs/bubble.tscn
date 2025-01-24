@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvbt71xwbc73x"]
+
+[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_21hf2"]
+[ext_resource type="Texture2D" uid="uid://u373pth4wpyi" path="res://assets/sprites/bubble.png" id="1_x6inw"]
+[ext_resource type="Theme" uid="uid://cicfhp1sq01kw" path="res://assets/themes/main.tres" id="3_m15be"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g446n"]
+radius = 7.07107
+
+[node name="Bubble" type="Area2D"]
+script = ExtResource("1_21hf2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x6inw")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g446n")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -25.0
+offset_top = -60.0
+offset_right = 25.0
+offset_bottom = -8.0
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(25, 52)
+theme = ExtResource("3_m15be")
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

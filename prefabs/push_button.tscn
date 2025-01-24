@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://ds5kjrleqmm5s"]
+
+[ext_resource type="Script" path="res://scripts/push_button.gd" id="1_dkxc2"]
+[ext_resource type="Texture2D" uid="uid://3iy6qm18aw8x" path="res://assets/sprites/monochrome_tilemap_transparent_packed.png" id="2_1hlq7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxc0k"]
+atlas = ExtResource("2_1hlq7")
+region = Rect2(48, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0a8t"]
+atlas = ExtResource("2_1hlq7")
+region = Rect2(64, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jlj5"]
+atlas = ExtResource("2_1hlq7")
+region = Rect2(80, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcwro"]
+atlas = ExtResource("2_1hlq7")
+region = Rect2(80, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq7c5"]
+atlas = ExtResource("2_1hlq7")
+region = Rect2(64, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh80o"]
+atlas = ExtResource("2_1hlq7")
+region = Rect2(48, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_plpdt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxc0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0a8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jlj5")
+}],
+"loop": false,
+"name": &"off",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcwro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq7c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh80o")
+}],
+"loop": false,
+"name": &"on",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jveq4"]
+size = Vector2(14, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kemsb"]
+size = Vector2(6, 7)
+
+[node name="PushButton" type="Node2D"]
+script = ExtResource("1_dkxc2")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_plpdt")
+animation = &"on"
+
+[node name="TriggerArea" type="Area2D" parent="."]
+position = Vector2(0, -6)
+
+[node name="Collider" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_jveq4")
+
+[node name="Base" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_kemsb")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="." method="_on_body_exited"]

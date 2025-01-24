@@ -1,2 +1,5 @@
-# GGJ25-Blobble
-Global Game Jam 2025 entry
+# Blobble
+
+A game about jumps and bubbles.
+
+Made in 48 hours for the Global Game Jam 2025.

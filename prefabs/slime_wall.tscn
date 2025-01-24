@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbobbduuha8oo"]
+
+[ext_resource type="Texture2D" uid="uid://ds4r5ylt5bdwr" path="res://assets/sprites/slime_wall.png" id="1_lm3g4"]
+[ext_resource type="Script" path="res://scripts/slime_wall.gd" id="1_pogba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cs4s"]
+size = Vector2(62, 4)
+
+[node name="SlimeWall" type="Area2D"]
+script = ExtResource("1_pogba")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_2cs4s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("1_lm3g4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
