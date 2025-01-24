@@ -24,7 +24,6 @@ func _ready() -> void:
 	_initial_life = life
 	life = _initial_life
 	if not Engine.is_editor_hint():
-
 		GameManager.resettable_objects.append(self)
 		GameManager.current_bubbles += 1
 

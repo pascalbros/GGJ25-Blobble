@@ -5,39 +5,37 @@ enum PortalColor {
 	ONE, TWO, THREE, FOUR
 }
 
-@export var id: String = "":
+@export var is_disabled := false:
 	set(value):
-		if value == id: return
-		id = value
-		if Engine.is_editor_hint():
-			link_portal()
+		if value == is_disabled: return
+		is_disabled = value
+		monitoring = not is_disabled
+		create_tween().tween_property(self, "modulate:a", 0.1 if is_disabled else 1.0, 0.2)
+		if linked_portal != null:
+			linked_portal.is_disabled = is_disabled
 
 @export var color: PortalColor = PortalColor.ONE:
 	set(value):
 		if value == color: return
 		color = value
-		#if sprite != null:
-			#sprite.self_modulate = enum_to_color(value)
-		#if linked_portal != null:
-			#linked_portal.color = value
+		if linked_portal != null:
+			linked_portal.color = value
 
 @export var linked_portal: Portal
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var _is_enabled := true
+var _should_react := true
+var _was_disabled = false
 
-#func _ready() -> void:
-	#if Engine.is_editor_hint():
-		#sprite.self_modulate = enum_to_color(color)
+func _ready() -> void:
+	_was_disabled = is_disabled
+	if not Engine.is_editor_hint():
+		GameManager.resettable_objects.append(self)
 
-func link_portal():
-	var portals = get_nodes_with_script(Portal)
-	for portal: Portal in portals:
-		if portal.id == id && portal.get_path() != get_path():
-			linked_portal = portal
-			portal.linked_portal = self
-			return
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		queue_redraw()
 
 func get_nodes_with_script(target_script: Script, root: Node = EditorInterface.get_edited_scene_root()) -> Array:
 	if root == null: return []
@@ -60,9 +58,9 @@ func enum_to_color(portal_color: PortalColor) -> Color:
 
 func _on_body_entered(body: Node2D) -> void:
 	if Engine.is_editor_hint(): return
-	if not _is_enabled: return
+	if not _should_react: return
 	if body is not Player: return
-	#linked_portal._is_enabled = false
+	#linked_portal._should_react = false
 	body.global_position = linked_portal.global_position
 	body.on_portal_exit(linked_portal)
 
@@ -70,4 +68,20 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if Engine.is_editor_hint(): return
 	if body is not Player: return
-	_is_enabled = true
+	_should_react = true
+
+func enable():
+	is_disabled = false
+
+func disable():
+	is_disabled = true
+
+func switch():
+	is_disabled = not is_disabled
+
+func reset():
+	is_disabled = _was_disabled
+
+func _draw():
+	if Engine.is_editor_hint():
+		draw_circle(Vector2.ZERO, 10, enum_to_color(color), false, 1)

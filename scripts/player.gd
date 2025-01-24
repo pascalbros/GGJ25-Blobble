@@ -48,6 +48,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func is_last_obj_touched(obj: Object) -> bool:
+	return obj.get_instance_id() == _last_obj_touched
+
 func _is_on_forbidden_ground() -> bool:
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
@@ -57,7 +60,7 @@ func _is_on_forbidden_ground() -> bool:
 	return false
 
 func on_bubble_collision(_bubble: Node2D):
-	if _last_obj_touched == _bubble.get_instance_id():
+	if is_last_obj_touched(_bubble):
 		GameManager.current.die(self)
 		return
 	velocity.y = JUMP_VELOCITY
