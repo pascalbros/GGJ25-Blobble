@@ -128,7 +128,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"born",
-"speed": 20.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -172,7 +172,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"die",
-"speed": 40.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -211,7 +211,7 @@ script = ExtResource("1_4u6b6")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ag0xt")
-animation = &"die"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Collider" type="CollisionShape2D" parent="."]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c05o5xv64g182"]
+
+[ext_resource type="Script" path="res://scripts/scene_transition.gd" id="1_m0agw"]
+[ext_resource type="Texture2D" uid="uid://beuj43r724oif" path="res://assets/sprites/bubbles_transition.png" id="2_stfab"]
+
+[node name="SceneTransition" type="Control"]
+visible = false
+z_index = 1000
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m0agw")
+in_animation = true
+
+[node name="BubblesWall" type="Sprite2D" parent="."]
+position = Vector2(-8, 648)
+texture = ExtResource("2_stfab")
+flip_v = true
+
+[node name="ColorRect" type="ColorRect" parent="BubblesWall"]
+offset_left = -256.0
+offset_top = -848.0
+offset_right = 256.0
+offset_bottom = -512.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-8, 0)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true

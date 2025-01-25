@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dj338xcsyq2qe"]
+[gd_scene load_steps=8 format=4 uid="uid://bt8vhcfge6c41"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_7jenr"]
 [ext_resource type="PackedScene" uid="uid://dvbt71xwbc73x" path="res://prefabs/bubble.tscn" id="1_andvm"]
@@ -510,3 +510,7 @@ position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_p883h")]
 position = Vector2(-33, -65)
+
+[connection signal="body_entered" from="TileMapLayer/Bubble" to="TileMapLayer/Bubble" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@215419" to="TileMapLayer/@Area2D@215419" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@215420" to="TileMapLayer/@Area2D@215420" method="_on_body_entered"]

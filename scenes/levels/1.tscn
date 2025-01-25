@@ -527,5 +527,5 @@ position_smoothing_enabled = true
 position = Vector2(-64, 0)
 
 [connection signal="body_entered" from="TileMapLayer/Bubble" to="TileMapLayer/Bubble" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@37061" to="TileMapLayer/@Area2D@37061" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@37062" to="TileMapLayer/@Area2D@37062" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@222157" to="TileMapLayer/@Area2D@222157" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@222158" to="TileMapLayer/@Area2D@222158" method="_on_body_entered"]
