@@ -34,11 +34,15 @@ func _on_body_entered(body: Node2D) -> void:
 
 func decrease_life(player: Player):
 	life -= 1
-	player.on_bubble_collision(self)
+	var is_player_dead = player.on_bubble_collision(self)
+	if is_player_dead: return
 	if life == 0:
 		modulate.a = 0
 		$Collider.set_deferred("disabled", true)
 		GameManager.current.on_bubble_popped()
+
+func redraw():
+	create_tween().tween_property(self, "modulate:a", 0.1 if is_disabled else 1.0, 0.2)
 
 func enable():
 	is_disabled = false
@@ -58,3 +62,4 @@ func reset():
 	$Collider.disabled = false
 	is_disabled = _was_disabled
 	life = _initial_life
+	redraw()

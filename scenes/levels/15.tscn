@@ -515,12 +515,10 @@ position = Vector2(-152, -8)
 
 [node name="Portal" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_ujvh0")]
 position = Vector2(-56, 8)
-is_disabled = false
 linked_portal = NodePath("../Portal2")
 
 [node name="Portal2" parent="." node_paths=PackedStringArray("linked_portal") instance=ExtResource("5_ujvh0")]
 position = Vector2(40, 8)
-is_disabled = false
 linked_portal = NodePath("../Portal")
 
 [node name="Bubble" parent="." instance=ExtResource("2_xtj6m")]

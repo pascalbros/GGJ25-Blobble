@@ -7,7 +7,10 @@ static var current: GameManager
 
 static var player_initial_position: Vector2
 static var resettable_objects = []
-static var current_bubbles = 0
+static var current_bubbles = 0:
+	set(value):
+		current_bubbles = value
+		print(current_bubbles)
 
 var current_level = 1
 
@@ -20,7 +23,7 @@ func on_player_out_of_bounds(player: Player):
 	die(player)
 
 func die(player: Player):
-	player.queue_free()
+	player.die()
 	var new_player = player_proto.instantiate()
 	new_player.global_position = player_initial_position
 	call_deferred("add_child", new_player)

@@ -29,6 +29,7 @@ animations = [{
 radius = 5.0
 
 [node name="Portal" type="Area2D"]
+collision_mask = 4
 script = ExtResource("2_qwsb2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

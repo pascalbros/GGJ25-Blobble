@@ -59,12 +59,21 @@ func _is_on_forbidden_ground() -> bool:
 			return true
 	return false
 
+func die():
+	set_physics_process(false)
+	sprite.play("die")
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2.ONE * 0.1, 0.5)
+	await sprite.animation_finished
+	queue_free()
+
 func on_bubble_collision(_bubble: Node2D):
 	if is_last_obj_touched(_bubble):
 		GameManager.current.die(self)
-		return
+		return true
 	velocity.y = JUMP_VELOCITY
 	_last_obj_touched = _bubble.get_instance_id()
+	return false
 
 func on_button_collision(_button: PushButton):
 	_last_obj_touched = _button.get_instance_id()
