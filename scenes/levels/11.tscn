@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cnxnfw3k31qpa" path="res://prefabs/player.tscn" id="4_cnr17"]
 [ext_resource type="PackedScene" uid="uid://ds5kjrleqmm5s" path="res://prefabs/push_button.tscn" id="5_rurw3"]
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_44qit"]
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_kqm4k"]
 resource_name = "Elements"
 scenes/1/scene = ExtResource("2_7stkt")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lj57"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ltnnw"]
 texture = ExtResource("3_q60c3")
 1:0/0 = 0
 2:0/0 = 0
@@ -486,8 +486,8 @@ texture = ExtResource("3_q60c3")
 
 [sub_resource type="TileSet" id="TileSet_34edj"]
 physics_layer_0/collision_layer = 2
-sources/2 = SubResource("TileSetAtlasSource_7lj57")
-sources/0 = SubResource("TileSetScenesCollectionSource_44qit")
+sources/2 = SubResource("TileSetAtlasSource_ltnnw")
+sources/0 = SubResource("TileSetScenesCollectionSource_kqm4k")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_oq8c1")

@@ -3,7 +3,6 @@ class_name SceneAnimation extends Control
 signal finished
 
 @onready var bubbles_wall: Sprite2D = $BubblesWall
-@onready var particles: CPUParticles2D = $CPUParticles2D
 
 @export var in_animation: bool = false
 

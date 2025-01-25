@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -350.0
 
 var _should_slide = false
 
+@export var should_animate_in = true
 @onready var sprite: AnimatedSprite2D = $Sprite
 
 var _has_touched_floor = false
@@ -15,8 +16,9 @@ var _is_ready = false
 
 func _ready() -> void:
 	GameManager.player_initial_position = global_position
-	sprite.play("born")
-	await sprite.animation_finished
+	if should_animate_in:
+		sprite.play("born")
+		await sprite.animation_finished
 	_is_ready = true
 
 func _physics_process(delta: float) -> void:

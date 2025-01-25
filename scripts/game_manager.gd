@@ -6,6 +6,8 @@ var in_animation = preload("res://scenes/scene_transition_in.tscn")
 var player_proto = preload("res://prefabs/player.tscn")
 var camera_bounds_proto = preload("res://prefabs/camera_bounds.tscn")
 
+@export var should_animate_in = true
+
 static var current: GameManager
 
 static var player_initial_position: Vector2
@@ -21,13 +23,12 @@ func _ready() -> void:
 	current = self
 	add_child(camera_bounds_proto.instantiate())
 	current_level = extract_level(get_tree().current_scene.scene_file_path)
-	animate_in()
+	if should_animate_in:
+		animate_in()
 
 func animate_in():
-	if $SceneTransition == null:
-		var animation = in_animation.instantiate()
-		add_child(animation)
-	var animation: SceneAnimation = $SceneTransition
+	var animation = in_animation.instantiate()
+	add_child(animation)
 	animation.visible = true
 	await animation.finished
 	animation.queue_free()
@@ -73,5 +74,5 @@ func _exit_tree() -> void:
 func extract_level(path: String) -> int:
 	return int(path.split("/")[-1].split(".")[0])
 
-func path_for(level: int) -> String:
+static func path_for(level: int) -> String:
 	return "res://scenes/levels/LEVEL.tscn".replace("LEVEL", str(level))
