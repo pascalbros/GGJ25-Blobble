@@ -11,11 +11,20 @@ var _should_slide = false
 var _has_touched_floor = false
 var _has_jumped = false
 var _last_obj_touched = 0
+var _is_ready = false
 
 func _ready() -> void:
 	GameManager.player_initial_position = global_position
+	sprite.play("born")
+	await sprite.animation_finished
+	_is_ready = true
 
 func _physics_process(delta: float) -> void:
+	if not _is_ready:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		move_and_slide()
+		return
 	if not is_on_floor():
 		if _has_touched_floor:
 			_has_jumped = true

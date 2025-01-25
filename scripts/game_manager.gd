@@ -21,6 +21,8 @@ func on_player_out_of_bounds(player: Player):
 
 func die(player: Player):
 	player.die()
+	if player._last_obj_touched == 0:
+		await get_tree().create_timer(0.2).timeout
 	var new_player = player_proto.instantiate()
 	new_player.global_position = player_initial_position
 	call_deferred("add_child", new_player)
