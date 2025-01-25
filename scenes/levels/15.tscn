@@ -522,7 +522,7 @@ position = Vector2(40, 8)
 linked_portal = NodePath("../Portal")
 
 [node name="Bubble" parent="." instance=ExtResource("2_xtj6m")]
-position = Vector2(136, 8)
+position = Vector2(136, 41.6643)
 
 [node name="Bubble2" parent="." instance=ExtResource("2_xtj6m")]
-position = Vector2(-8, -40)
+position = Vector2(-8, -6.33575)

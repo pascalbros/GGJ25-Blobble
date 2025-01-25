@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://lenrudt1uuya"]
+[gd_scene load_steps=9 format=4 uid="uid://lenrudt1uuya"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_a1uap"]
 [ext_resource type="PackedScene" uid="uid://dvbt71xwbc73x" path="res://prefabs/bubble.tscn" id="2_r34fn"]
 [ext_resource type="Texture2D" uid="uid://3iy6qm18aw8x" path="res://assets/sprites/monochrome_tilemap_transparent_packed.png" id="3_v2c8m"]
 [ext_resource type="PackedScene" uid="uid://cnxnfw3k31qpa" path="res://prefabs/player.tscn" id="4_wvajr"]
+[ext_resource type="PackedScene" uid="uid://bbobbduuha8oo" path="res://prefabs/slime_wall.tscn" id="5_fwlie"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_44qit"]
 resource_name = "Elements"
@@ -499,7 +500,7 @@ offset_bottom = 215.0
 color = Color(0.0923971, 0.0923971, 0.0923971, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 242, 255, 252, 255, 2, 0, 10, 0, 16, 0, 0, 0, 243, 255, 252, 255, 2, 0, 11, 0, 16, 0, 0, 0, 244, 255, 252, 255, 2, 0, 12, 0, 16, 0, 0, 0)
+tile_map_data = PackedByteArray("AADy//z/AgAKABAAAADz//z/AgALABAAAAD0//z/AgAMABAAAAD5//3/AgAPAAoAAAD5//z/AgAPAAoAAAD5//v/AgAPAAoAAAD5//r/AgAPAAoAAAD5//n/AgAPAAoAAAD5//j/AgAPAAoAAAA=")
 tile_set = SubResource("TileSet_34edj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -513,11 +514,15 @@ position_smoothing_enabled = true
 position = Vector2(-200, -72)
 
 [node name="Bubble2" parent="." instance=ExtResource("2_r34fn")]
-position = Vector2(-56, -8)
+position = Vector2(-56, -10.5167)
 
 [node name="Bubble" parent="." instance=ExtResource("2_r34fn")]
-position = Vector2(-136, -8)
+position = Vector2(-136, -10.5167)
 life = 2
 
 [node name="Bubble3" parent="." instance=ExtResource("2_r34fn")]
-position = Vector2(-8, -8)
+position = Vector2(-8, -10.5167)
+
+[node name="SlimeWall" parent="." instance=ExtResource("5_fwlie")]
+position = Vector2(-115, -73)
+rotation = -1.5708

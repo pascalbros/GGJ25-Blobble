@@ -515,12 +515,12 @@ position = Vector2(-8, 16)
 
 [node name="Bubble" parent="." instance=ExtResource("2_7stkt")]
 modulate = Color(1, 1, 1, 0.1)
-position = Vector2(-72, -24)
+position = Vector2(-56, -24)
 is_disabled = true
 
 [node name="Bubble2" parent="." instance=ExtResource("2_7stkt")]
 modulate = Color(1, 1, 1, 0.1)
-position = Vector2(56, -24)
+position = Vector2(40, -24)
 is_disabled = true
 
 [node name="PushButton" parent="." instance=ExtResource("5_rurw3")]
@@ -529,5 +529,6 @@ position = Vector2(72, 24)
 [node name="PushButton2" parent="." instance=ExtResource("5_rurw3")]
 position = Vector2(-88, 24)
 
+[connection signal="body_entered" from="TileMapLayer/Bubble" to="TileMapLayer/Bubble" method="_on_body_entered"]
 [connection signal="pressed" from="PushButton" to="Bubble" method="enable"]
 [connection signal="pressed" from="PushButton2" to="Bubble2" method="enable"]

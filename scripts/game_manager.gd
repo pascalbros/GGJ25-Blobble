@@ -7,10 +7,7 @@ static var current: GameManager
 
 static var player_initial_position: Vector2
 static var resettable_objects = []
-static var current_bubbles = 0:
-	set(value):
-		current_bubbles = value
-		print(current_bubbles)
+static var current_bubbles = 0
 
 var current_level = 1
 

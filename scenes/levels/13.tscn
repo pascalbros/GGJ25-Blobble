@@ -514,25 +514,25 @@ position_smoothing_enabled = true
 position = Vector2(-104, 64)
 
 [node name="Bubble" parent="." instance=ExtResource("2_41tuu")]
-position = Vector2(56, -88)
+position = Vector2(56, -54.6919)
 
 [node name="Bubble2" parent="." instance=ExtResource("2_41tuu")]
 modulate = Color(1, 1, 1, 0.1)
-position = Vector2(-40, 8)
+position = Vector2(-40, 41.3088)
 is_disabled = true
 
 [node name="PushButton2" parent="." instance=ExtResource("5_d3gg2")]
 position = Vector2(72, 72)
 
 [node name="Bubble3" parent="." instance=ExtResource("2_41tuu")]
-position = Vector2(-8, 72)
+position = Vector2(-8, 105.308)
 life = 2
 
 [node name="Bubble5" parent="." instance=ExtResource("2_41tuu")]
-position = Vector2(-8, -56)
+position = Vector2(-8, -22.6911)
 life = 2
 
 [node name="Bubble6" parent="." instance=ExtResource("2_41tuu")]
-position = Vector2(-72, -88)
+position = Vector2(-72, -54.6919)
 
 [connection signal="pressed" from="PushButton2" to="Bubble2" method="enable"]
