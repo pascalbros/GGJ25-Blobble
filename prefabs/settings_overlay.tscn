@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://5heua5hnhvqp"]
+
+[ext_resource type="Theme" uid="uid://cicfhp1sq01kw" path="res://assets/themes/main.tres" id="1_x6c7v"]
+[ext_resource type="Script" path="res://scripts/settings_overlay.gd" id="1_y3c3c"]
+[ext_resource type="Texture2D" uid="uid://clhigrr3cap2f" path="res://assets/sprites/crt_button.png" id="3_cffd2"]
+[ext_resource type="Texture2D" uid="uid://rbrgx8lijlhp" path="res://assets/sprites/colors_button.png" id="3_nju36"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1d2uk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5lae3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywjjl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p5fyh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jk3og"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgqmm"]
+
+[node name="SettingsOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y3c3c")
+
+[node name="Colors" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 164.0
+offset_top = -131.0
+offset_right = 196.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_x6c7v")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1d2uk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5lae3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ywjjl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5fyh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jk3og")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wgqmm")
+icon = ExtResource("3_nju36")
+flat = true
+icon_alignment = 1
+
+[node name="CrtButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 195.0
+offset_top = -131.0
+offset_right = 227.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_x6c7v")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1d2uk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5lae3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ywjjl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p5fyh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jk3og")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wgqmm")
+icon = ExtResource("3_cffd2")
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="Colors" to="." method="_on_colors_pressed"]
+[connection signal="pressed" from="CrtButton" to="." method="_on_crt_button_pressed"]
