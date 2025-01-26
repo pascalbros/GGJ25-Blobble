@@ -8,6 +8,7 @@ var player_proto = preload("res://prefabs/player.tscn")
 var camera_bounds_proto = preload("res://prefabs/camera_bounds.tscn")
 
 @export var should_animate_in = true
+@export_multiline var level_name: String = ""
 
 static var current: GameManager
 
@@ -31,7 +32,8 @@ func _ready() -> void:
 		animate_in()
 
 func animate_in():
-	var animation = in_animation.instantiate()
+	var animation: SceneAnimation = in_animation.instantiate()
+	animation.level_name = level_name
 	add_child(animation)
 	animation.visible = true
 	await animation.finished
@@ -39,7 +41,12 @@ func animate_in():
 
 func animate_out():
 	_current_player.queue_free()
+
 	var animation: SceneAnimation = out_animation.instantiate()
+	var path = path_for(current_level + 1)
+	if ResourceLoader.exists(path):
+		var level: GameManager = load(path).instantiate()
+		animation.level_name = level.level_name
 	add_child(animation)
 	await animation.finished
 	go_to_next_level()
@@ -71,7 +78,6 @@ func go_to_next_level():
 	get_tree().call_deferred("change_scene_to_file", path)
 
 
-
 func _exit_tree() -> void:
 	if current == self:
 		resettable_objects = []
@@ -82,3 +88,17 @@ func extract_level(path: String) -> int:
 
 static func path_for(level: int) -> String:
 	return "res://scenes/levels/LEVEL.tscn".replace("LEVEL", str(level))
+
+static func next_color() -> Color:
+	var available_colors = [
+		Color("181818"),
+		Color("c28229"),
+		Color("c21140"),
+		Color("718f4d"),
+		Color("3986d4")
+	]
+	var result = 0
+	for i in len(available_colors):
+		if GameManager.theme_color == available_colors[i]:
+			result = (i+1) % len(available_colors)
+	return available_colors[result]

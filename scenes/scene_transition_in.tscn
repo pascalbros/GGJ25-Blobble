@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c05o5xv64g182"]
+[gd_scene load_steps=4 format=3 uid="uid://c05o5xv64g182"]
 
 [ext_resource type="Script" path="res://scripts/scene_transition.gd" id="1_m0agw"]
 [ext_resource type="Texture2D" uid="uid://beuj43r724oif" path="res://assets/sprites/bubbles_transition.png" id="2_stfab"]
+[ext_resource type="Theme" uid="uid://cicfhp1sq01kw" path="res://assets/themes/main.tres" id="3_k4wqg"]
 
 [node name="SceneTransition" type="Control"]
-visible = false
 z_index = 1000
 layout_mode = 3
 anchors_preset = 15
@@ -25,6 +25,23 @@ offset_left = -256.0
 offset_top = -848.0
 offset_right = 256.0
 offset_bottom = -512.0
+
+[node name="Label" type="Label" parent="BubblesWall"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -1175.0
+offset_right = -256.0
+offset_bottom = -1140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_k4wqg")
+theme_override_colors/font_color = Color(0.0159718, 0.0159718, 0.0159718, 1)
+theme_override_font_sizes/font_size = 34
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-8, 0)

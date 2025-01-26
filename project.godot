@@ -11,8 +11,11 @@ config_version=5
 [application]
 
 config/name="Blobble"
+config/version="1.0"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
+boot_splash/bg_color=Color(0.0941176, 0.0941176, 0.0941176, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

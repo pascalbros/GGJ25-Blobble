@@ -14,3 +14,9 @@ func _on_start_game_button_pressed() -> void:
 	var level_path = GameManager.path_for(1)
 	if ResourceLoader.exists(level_path):
 		get_tree().change_scene_to_file(level_path)
+
+
+func _on_theme_button_pressed() -> void:
+	var next_color = GameManager.next_color()
+	GameManager.theme_color = next_color
+	$ColorRect.create_tween().tween_property($ColorRect, "color", next_color, 0.2)

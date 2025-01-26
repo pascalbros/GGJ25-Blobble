@@ -491,6 +491,8 @@ sources/0 = SubResource("TileSetScenesCollectionSource_44qit")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_o5dio")
+level_name = "No king
+rules forever"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -363.0

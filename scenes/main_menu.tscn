@@ -704,4 +704,5 @@ libraries = {
 "": SubResource("AnimationLibrary_m06x2")
 }
 
+[connection signal="pressed" from="ThemeButton" to="." method="_on_theme_button_pressed"]
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]

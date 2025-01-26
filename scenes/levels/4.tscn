@@ -490,6 +490,8 @@ sources/0 = SubResource("TileSetScenesCollectionSource_44qit")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_dd2fl")
+level_name = "Take the stairs,
+it's healtier"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -363.0
@@ -510,9 +512,3 @@ position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_xydnj")]
 position = Vector2(40, 80)
-
-[connection signal="body_entered" from="TileMapLayer/Bubble" to="TileMapLayer/Bubble" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@213030" to="TileMapLayer/@Area2D@213030" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@213031" to="TileMapLayer/@Area2D@213031" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@213032" to="TileMapLayer/@Area2D@213032" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@213033" to="TileMapLayer/@Area2D@213033" method="_on_body_entered"]
