@@ -500,32 +500,35 @@ offset_bottom = 215.0
 color = Color(0.0923971, 0.0923971, 0.0923971, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-8, 0)
 tile_map_data = PackedByteArray(0, 0, 254, 255, 6, 0, 2, 0, 10, 0, 16, 0, 0, 0, 255, 255, 6, 0, 2, 0, 11, 0, 16, 0, 0, 0, 0, 0, 6, 0, 2, 0, 11, 0, 16, 0, 0, 0, 1, 0, 6, 0, 2, 0, 12, 0, 16, 0, 0, 0)
 tile_set = SubResource("TileSet_34edj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-8, 0)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="Main" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_y1br7")]
-position = Vector2(0, 96)
+position = Vector2(-8, 96)
 
 [node name="Bubble" parent="." instance=ExtResource("2_wyksb")]
-position = Vector2(56, 56)
+position = Vector2(48, 56)
 
 [node name="Bubble4" parent="." instance=ExtResource("2_wyksb")]
-position = Vector2(-56, 56)
+position = Vector2(-64, 56)
 
 [node name="Bubble5" parent="." instance=ExtResource("2_wyksb")]
-position = Vector2(-56, -56)
+position = Vector2(-64, -56)
 
 [node name="Bubble6" parent="." instance=ExtResource("2_wyksb")]
-position = Vector2(0, -112)
+position = Vector2(-8, -112)
 
 [node name="Bubble2" parent="." instance=ExtResource("2_wyksb")]
-position = Vector2(56, -56)
+position = Vector2(48, -56)
 
 [node name="Bubble3" parent="." instance=ExtResource("2_wyksb")]
+position = Vector2(-8, 0)
 life = 4

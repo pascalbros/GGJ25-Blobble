@@ -528,7 +528,3 @@ position_smoothing_enabled = true
 [node name="Player" parent="." instance=ExtResource("3_wpwgw")]
 position = Vector2(-8, -152)
 should_animate_in = false
-
-[connection signal="body_entered" from="TileMapLayer/Bubble" to="TileMapLayer/Bubble" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@419079" to="TileMapLayer/@Area2D@419079" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@419080" to="TileMapLayer/@Area2D@419080" method="_on_body_entered"]

@@ -9,7 +9,7 @@ func _ready() -> void:
 	await $Overlay.create_tween().tween_property($Overlay, "self_modulate:a", 0, 0.5).finished
 	await get_tree().create_timer(3).timeout
 	await $Overlay.create_tween().tween_property($Overlay, "self_modulate:a", 1, 0.5).finished
-	$Label.text = "Yet another\nGlobal Game Jam\ngame (2025)"
+	$Label.text = "Yet another\nGlobal Game Jam\ngame"
 	await $Overlay.create_tween().tween_property($Overlay, "self_modulate:a", 0, 0.5).finished
 	await get_tree().create_timer(3).timeout
 	await $Overlay.create_tween().tween_property($Overlay, "self_modulate:a", 1, 0.5).finished

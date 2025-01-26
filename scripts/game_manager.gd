@@ -14,7 +14,8 @@ static var current: GameManager
 
 static var player_initial_position: Vector2
 static var resettable_objects = []
-static var current_bubbles = 0
+static var current_bubbles = 0:
+	set(value): current_bubbles = max(value, 0)
 static var theme_color = Color("181818")
 
 var current_level = 1
@@ -31,6 +32,14 @@ func _ready() -> void:
 	if should_animate_in:
 		animate_in()
 
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_P:
+			animate_out()
+		elif event.keycode == KEY_ESCAPE:
+			MusicManager.play_song_1()
+			get_tree().call_deferred("change_scene_to_file", "res://scenes/main_menu.tscn")
+
 func animate_in():
 	var animation: SceneAnimation = in_animation.instantiate()
 	animation.level_name = level_name
@@ -41,7 +50,6 @@ func animate_in():
 
 func animate_out():
 	_current_player.queue_free()
-
 	var animation: SceneAnimation = out_animation.instantiate()
 	var path = path_for(current_level + 1)
 	if ResourceLoader.exists(path):
@@ -75,6 +83,7 @@ func go_to_next_level():
 	var path = path_for(current_level + 1)
 	if not ResourceLoader.exists(path):
 		path = "res://scenes/thanks.tscn"
+	current_bubbles = 0
 	get_tree().call_deferred("change_scene_to_file", path)
 
 

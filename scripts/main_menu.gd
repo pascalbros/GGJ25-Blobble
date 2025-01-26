@@ -1,6 +1,8 @@
 extends Node2D
 
 func _ready() -> void:
+	GameManager.current_bubbles = 0
+	$StartGameButton.grab_focus()
 	$ColorRect.color = GameManager.theme_color
 	await get_tree().create_timer(0.5).timeout
 	$Player._get_ready()

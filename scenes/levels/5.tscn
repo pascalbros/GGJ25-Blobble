@@ -504,6 +504,7 @@ tile_map_data = PackedByteArray("AAD+////AgAKABAAAAD/////AgALABAAAAAAAP//AgAMABA
 tile_set = SubResource("TileSet_34edj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-8, 0)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 

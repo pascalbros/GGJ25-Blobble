@@ -16,3 +16,4 @@ func _ready() -> void:
 	await get_tree().create_timer(3).timeout
 	await $Overlay.create_tween().tween_property($Overlay, "self_modulate:a", 1, 0.5).finished
 	get_tree().change_scene_to_file(next_level)
+	MusicManager.play_song_1()
