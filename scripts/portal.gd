@@ -1,6 +1,9 @@
 @tool
 class_name Portal extends Area2D
 
+const click_1 = preload("res://assets/sounds/fx/click_1.wav")
+const click_2 = preload("res://assets/sounds/fx/click_2.wav")
+
 enum PortalColor {
 	ONE, TWO, THREE, FOUR
 }
@@ -25,6 +28,9 @@ enum PortalColor {
 @export var linked_portal: Portal
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_player: AudioStreamPlayer = $AudioPlayer
+
+static var last_click_sound = false
 
 var _should_react := true
 var _was_disabled = false
@@ -65,6 +71,9 @@ func _on_body_entered(body: Node2D) -> void:
 	#linked_portal._should_react = false
 	body.global_position = linked_portal.global_position
 	body.on_portal_exit(linked_portal)
+	audio_player.stream = click_1 if last_click_sound else click_2
+	audio_player.play()
+	last_click_sound = not last_click_sound
 
 
 func _on_body_exited(body: Node2D) -> void:

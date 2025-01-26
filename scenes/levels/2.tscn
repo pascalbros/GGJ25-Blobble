@@ -509,3 +509,6 @@ position_smoothing_enabled = true
 [node name="Main" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_vyg4e")]
+
+[connection signal="body_entered" from="TileMapLayer/Bubble" to="TileMapLayer/Bubble" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@343582" to="TileMapLayer/@Area2D@343582" method="_on_body_entered"]

@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	$ColorRect.color = GameManager.theme_color
 	await get_tree().create_timer(0.5).timeout
 	$Player._get_ready()
 	$Player.visible = true

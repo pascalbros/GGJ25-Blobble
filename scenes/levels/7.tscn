@@ -511,10 +511,3 @@ position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_wxw1p")]
 position = Vector2(-183, -16)
-
-[connection signal="body_entered" from="TileMapLayer/Bubble" to="TileMapLayer/Bubble" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@214275" to="TileMapLayer/@Area2D@214275" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@214276" to="TileMapLayer/@Area2D@214276" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@214277" to="TileMapLayer/@Area2D@214277" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@214278" to="TileMapLayer/@Area2D@214278" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@214279" to="TileMapLayer/@Area2D@214279" method="_on_body_entered"]

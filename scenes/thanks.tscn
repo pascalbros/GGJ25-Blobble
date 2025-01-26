@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci7lhwvj5ftgk"]
+
+[ext_resource type="Script" path="res://scripts/thanks.gd" id="1_rqq14"]
+[ext_resource type="Theme" uid="uid://cicfhp1sq01kw" path="res://assets/themes/main.tres" id="2_yr8wv"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_rqq14")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -363.0
+offset_top = -210.0
+offset_right = 365.0
+offset_bottom = 215.0
+color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-8, -8)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -72.0
+offset_right = 115.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_yr8wv")
+theme_override_font_sizes/font_size = 30
+text = "Thanks for
+playing :)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Overlay" type="ColorRect" parent="."]
+visible = false
+offset_left = -360.0
+offset_top = -216.0
+offset_right = 368.0
+offset_bottom = 209.0
+color = Color(0.0923971, 0.0923971, 0.0923971, 1)

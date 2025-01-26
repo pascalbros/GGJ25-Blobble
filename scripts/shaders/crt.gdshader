@@ -128,10 +128,6 @@ float vignette(vec2 uv){
 	return pow(vignette, vignette_intensity * vignette_amount);
 }
 
-float floating_mod(float a, float b){
-	return a - b * floor(a/b);
-}
-
 vec3 grille(vec2 uv){
 	float unit = PI / 3.0;
 	float scale = 2.0*unit/grille_size;

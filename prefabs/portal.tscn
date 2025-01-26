@@ -41,5 +41,8 @@ frame_progress = 0.719146
 shape = SubResource("CircleShape2D_g446n")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"FX"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

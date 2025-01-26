@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bseikw376kb33"]
+[gd_scene load_steps=6 format=3 uid="uid://bseikw376kb33"]
 
 [ext_resource type="Script" path="res://scripts/Crt.gd" id="1_7iud0"]
 [ext_resource type="Shader" path="res://scripts/shaders/crt.gdshader" id="1_a1r62"]
@@ -24,6 +24,12 @@ shader_parameter/pixel_strength = -2.0
 size = Vector2(1920, 1080)
 center_offset = Vector3(960, 540, 0)
 
+[sub_resource type="Environment" id="Environment_6svev"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.37
+glow_bloom = 0.35
+
 [node name="Crt" type="Node2D"]
 script = ExtResource("1_7iud0")
 
@@ -32,3 +38,6 @@ script = ExtResource("1_7iud0")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_wcop2")
 mesh = SubResource("QuadMesh_xwwpc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6svev")

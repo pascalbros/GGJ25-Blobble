@@ -203,6 +203,7 @@ texture = ExtResource("3_lgoos")
 16:8/0 = 0
 17:8/0 = 0
 18:8/0 = 0
+18:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 19:8/0 = 0
 0:9/0 = 0
 1:9/0 = 0
@@ -500,7 +501,7 @@ offset_bottom = 215.0
 color = Color(0.0923971, 0.0923971, 0.0923971, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 254, 255, 5, 0, 2, 0, 10, 0, 16, 0, 0, 0, 255, 255, 5, 0, 2, 0, 11, 0, 16, 0, 0, 0, 0, 0, 5, 0, 2, 0, 12, 0, 16, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 254, 255, 5, 0, 2, 0, 10, 0, 16, 0, 0, 0, 255, 255, 5, 0, 2, 0, 11, 0, 16, 0, 0, 0, 0, 0, 5, 0, 2, 0, 12, 0, 16, 0, 0, 0, 251, 255, 255, 255, 2, 0, 18, 0, 8, 0, 0, 0, 3, 0, 5, 0, 2, 0, 18, 0, 8, 0, 0, 0)
 tile_set = SubResource("TileSet_34edj")
 
 [node name="Camera2D" type="Camera2D" parent="."]

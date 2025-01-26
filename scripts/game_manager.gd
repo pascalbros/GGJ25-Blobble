@@ -66,8 +66,10 @@ func on_bubble_popped():
 
 func go_to_next_level():
 	var path = path_for(current_level + 1)
-	if ResourceLoader.exists(path):
-		get_tree().call_deferred("change_scene_to_file", path)
+	if not ResourceLoader.exists(path):
+		path = "res://scenes/thanks.tscn"
+	get_tree().call_deferred("change_scene_to_file", path)
+
 
 
 func _exit_tree() -> void:
