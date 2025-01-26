@@ -521,4 +521,10 @@ is_disabled = true
 [node name="PushButton" parent="." instance=ExtResource("5_wytwu")]
 position = Vector2(-8, 72)
 
+[connection signal="body_entered" from="TileMapLayer/Bubble" to="TileMapLayer/Bubble" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@187343" to="TileMapLayer/@Area2D@187343" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@187344" to="TileMapLayer/@Area2D@187344" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@187345" to="TileMapLayer/@Area2D@187345" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@187346" to="TileMapLayer/@Area2D@187346" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@187347" to="TileMapLayer/@Area2D@187347" method="_on_body_entered"]
 [connection signal="pressed" from="PushButton" to="Bubble" method="enable"]

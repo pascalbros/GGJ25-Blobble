@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://cnxnfw3k31qpa"]
+[gd_scene load_steps=30 format=3 uid="uid://cnxnfw3k31qpa"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_4u6b6"]
 [ext_resource type="Texture2D" uid="uid://cyxhk74q8fp33" path="res://assets/sprites/blob_spritesheet.png" id="1_peirt"]
+[ext_resource type="AudioStream" uid="uid://byaf0r8g15veb" path="res://assets/sounds/fx/blob_die.wav" id="3_i0boq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7lra"]
 atlas = ExtResource("1_peirt")
@@ -218,3 +219,7 @@ autoplay = "idle"
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_80dmg")
 debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_i0boq")
+bus = &"FX"

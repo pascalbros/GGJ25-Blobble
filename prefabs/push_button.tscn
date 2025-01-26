@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://ds5kjrleqmm5s"]
+[gd_scene load_steps=13 format=3 uid="uid://ds5kjrleqmm5s"]
 
 [ext_resource type="Script" path="res://scripts/push_button.gd" id="1_dkxc2"]
 [ext_resource type="Texture2D" uid="uid://3iy6qm18aw8x" path="res://assets/sprites/monochrome_tilemap_transparent_packed.png" id="2_1hlq7"]
+[ext_resource type="AudioStream" uid="uid://cauv3jtx2kk4p" path="res://assets/sounds/fx/boing_1.wav" id="3_yylvy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxc0k"]
 atlas = ExtResource("2_1hlq7")
@@ -85,6 +86,10 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Base"]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_kemsb")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yylvy")
+bus = &"FX"
 
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="." method="_on_body_exited"]

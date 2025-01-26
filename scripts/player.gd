@@ -8,6 +8,7 @@ var _should_slide = false
 
 @export var should_animate_in = true
 @onready var sprite: AnimatedSprite2D = $Sprite
+@onready var audio_player: AudioStreamPlayer = $AudioPlayer
 
 var _has_touched_floor = false
 var _has_jumped = false
@@ -71,6 +72,7 @@ func _is_on_forbidden_ground() -> bool:
 	return false
 
 func die():
+	audio_player.play()
 	set_physics_process(false)
 	sprite.play("die")
 	var tween = create_tween()

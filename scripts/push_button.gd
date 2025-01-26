@@ -13,6 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is not Player: return
 	var player = body as Player
 	sprite.play("on")
+	$AudioPlayer.play()
 	if not player.is_last_obj_touched(self):
 		pressed.emit()
 	player.on_button_collision(self)
