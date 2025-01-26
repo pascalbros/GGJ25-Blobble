@@ -45,16 +45,6 @@ func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		queue_redraw()
 
-func get_nodes_with_script(target_script: Script, root: Node = EditorInterface.get_edited_scene_root()) -> Array:
-	if root == null: return []
-	var nodes_with_script = []
-	var script = root.get_script()
-	if script != null and script == target_script:
-		nodes_with_script.append(root)
-	for child in root.get_children():
-		nodes_with_script += get_nodes_with_script(target_script, child)
-	return nodes_with_script
-
 func enum_to_color(portal_color: PortalColor) -> Color:
 	match portal_color:
 		PortalColor.ONE: return Color("16C47F")

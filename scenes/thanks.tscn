@@ -33,7 +33,7 @@ grow_vertical = 2
 theme = ExtResource("2_yr8wv")
 theme_override_font_sizes/font_size = 30
 text = "Thanks for
-playing :)"
+playing :D"
 horizontal_alignment = 1
 vertical_alignment = 1
 
