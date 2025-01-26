@@ -143,4 +143,7 @@ theme = ExtResource("3_m15be")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"FX"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

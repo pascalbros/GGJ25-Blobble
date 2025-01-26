@@ -1,6 +1,9 @@
 @tool
 class_name Bubble extends Area2D
 
+const pop_sound = preload("res://assets/sounds/fx/pop_1.wav")
+const boing_sound = preload("res://assets/sounds/fx/boing_2.wav")
+
 @export var is_disabled := false:
 	set(value):
 		if not is_active(): return
@@ -19,6 +22,7 @@ var _initial_life = 0
 
 @onready var label: Label = $Label
 @onready var sprite: AnimatedSprite2D = $Sprite2D
+@onready var audio_player: AudioStreamPlayer = $AudioPlayer
 
 var time = 0.0
 var amplitude = 0.05
@@ -49,6 +53,9 @@ func decrease_life(player: Player):
 	var is_player_dead = player.on_bubble_collision(self)
 	if is_player_dead: return
 	if life == 0:
+		audio_player.pitch_scale = randf_range(0.5, 1.5)
+		audio_player.stream = pop_sound
+		audio_player.play()
 		$Collider.set_deferred("disabled", true)
 		GameManager.current.on_bubble_popped()
 		sprite.play("pop")
@@ -56,6 +63,9 @@ func decrease_life(player: Player):
 		modulate.a = 0
 		sprite.play("idle")
 	else:
+		audio_player.stream = boing_sound
+		audio_player.pitch_scale = 1
+		audio_player.play()
 		sprite.play("squeeze")
 		await sprite.animation_finished
 		sprite.play("idle")
