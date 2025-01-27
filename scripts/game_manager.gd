@@ -3,6 +3,7 @@ class_name GameManager extends Node2D
 var out_animation = preload("res://scenes/scene_transition_out.tscn")
 var in_animation = preload("res://scenes/scene_transition_in.tscn")
 var settings_overlay = preload("res://prefabs/settings_overlay.tscn")
+var player_finder = preload("res://prefabs/player_finder.tscn")
 
 var player_proto = preload("res://prefabs/player.tscn")
 var camera_bounds_proto = preload("res://prefabs/camera_bounds.tscn")
@@ -28,6 +29,7 @@ func _ready() -> void:
 	current = self
 	add_child(settings_overlay.instantiate())
 	add_child(camera_bounds_proto.instantiate())
+	add_child(player_finder.instantiate())
 	current_level = extract_level(get_tree().current_scene.scene_file_path)
 	if should_animate_in:
 		animate_in()
