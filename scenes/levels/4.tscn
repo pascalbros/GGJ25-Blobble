@@ -488,7 +488,7 @@ physics_layer_0/collision_layer = 2
 sources/2 = SubResource("TileSetAtlasSource_7lj57")
 sources/0 = SubResource("TileSetScenesCollectionSource_44qit")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D4" type="Node2D"]
 script = ExtResource("1_dd2fl")
 level_name = "Take the stairs,
 it's healtier"
@@ -505,7 +505,7 @@ tile_map_data = PackedByteArray("AAD9//r/AAAAAAAAAQD9//7/AAAAAAAAAQD9/wIAAAAAAAA
 tile_set = SubResource("TileSet_34edj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(-8, 0)
+position = Vector2(-8, 0)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 

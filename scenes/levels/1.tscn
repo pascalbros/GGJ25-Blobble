@@ -503,7 +503,7 @@ physics_layer_0/collision_layer = 2
 sources/2 = SubResource("TileSetAtlasSource_y2hbr")
 sources/0 = SubResource("TileSetScenesCollectionSource_f2ufy")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_vy6be")
 should_animate_in = false
 
@@ -520,6 +520,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAgALABAAAAD+/wAAAgAKABAAAAD//wAAAgALABA
 tile_set = SubResource("TileSet_34edj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-8, 0)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 

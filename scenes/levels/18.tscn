@@ -490,7 +490,7 @@ physics_layer_0/collision_layer = 2
 sources/2 = SubResource("TileSetAtlasSource_7lj57")
 sources/0 = SubResource("TileSetScenesCollectionSource_44qit")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D3" type="Node2D"]
 script = ExtResource("1_3tpn2")
 level_name = "life takes you to 
 unexpected places"
