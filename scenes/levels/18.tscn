@@ -492,7 +492,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_44qit")
 
 [node name="Node2D3" type="Node2D"]
 script = ExtResource("1_3tpn2")
-level_name = "life takes you to 
+level_name = "Life takes you to 
 unexpected places"
 
 [node name="ColorRect" type="ColorRect" parent="."]
