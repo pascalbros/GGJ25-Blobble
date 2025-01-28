@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://buj0dbjflrqs6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30avl"]
+size = Vector2(130, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocqvj"]
+size = Vector2(212.9, 300)
+
+[node name="TouchScreen" type="Node2D"]
+z_index = 4096
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2(-182, 50)
+shape = SubResource("RectangleShape2D_30avl")
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2(166, 50)
+shape = SubResource("RectangleShape2D_30avl")
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+position = Vector2(-8, 50)
+shape = SubResource("RectangleShape2D_ocqvj")
+passby_press = true
+action = "jump"
+visibility_mode = 1
+
+[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
+[connection signal="released" from="Left" to="." method="_on_left_released"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
+[connection signal="released" from="Right" to="." method="_on_right_released"]
+[connection signal="pressed" from="Jump" to="." method="_on_jump_pressed"]
+[connection signal="released" from="Jump" to="." method="_on_jump_released"]

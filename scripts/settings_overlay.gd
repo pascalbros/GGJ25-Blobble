@@ -1,5 +1,9 @@
 extends Control
 
+func _ready() -> void:
+	if Crt.is_mobile:
+		$CrtButton.disabled = true
+
 func _on_crt_button_pressed() -> void:
 	$CrtButton.release_focus()
 	Crt.is_visible = not Crt.is_visible
